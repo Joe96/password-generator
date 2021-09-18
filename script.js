@@ -10,101 +10,98 @@ var finalPassWord = {
   hasNumbers: false,
   hasSpecialChar: false,
 
-    generatePassword: function() {
-    console.log("Joel");
-    finalPassWord.setPasswordLength();
-    finalPassWord.setUppercase();
-    finalPassWord.setLowercase();
-    finalPassWord.setNumbers();
-    finalPassWord.setSpecialChar();
-  },
+  setPasswordLength: function (number) {
 
-  setPasswordLength: function () {
+    number = parseInt(prompt("How many character should the password have? : "));
 
-    passwordLength = parseInt(prompt("How many character should the password have? : "));
-
-    if(passwordLength <= 7) {
+    if(number <= 7) {
       console.log("Number to short, try again!")
     } 
-    else if (passwordLength >= 129){
+    else if (number >= 129){
       console.log("Number to big, try again!")
     }
     else {
-      console.log(passwordLength)
-      return passwordLength;
+      this.passwordLength = number;
+      console.log("Password length set.")
     }
 
   },
 
-  setUppercase: function () {
-    hasUppercase = window.confirm("Should the password contain uppercase characters? ")
+  setUppercase: function (isUppercase) {
 
-    if(hasUppercase === true){
-      hasUppercase = true;
-      console.log(hasUppercase)
-    } else {
-      hasUppercase = false;
-      console.log(hasUppercase)
-    }
+    isUppercase = window.confirm("Should the password contain lowercase characters? ")
+    this.hasUppercase = isUppercase;    
     console.log("uppercase set.")
   },
 
-  setLowercase: function () {
-    hasLowercase = window.confirm("Should the password contain lowercase characters? ")
+  setLowercase: function (isLowercase) {
 
-    if(hasLowercase === true){
-      hasLowercase = true;
-      console.log(hasLowercase)
-    } else {
-      hasLowercase = false;
-      console.log(hasLowercase)
-    }
+    isLowercase = window.confirm("Should the password contain lowercase characters? ")
+    this.hasLowercase = isLowercase;    
     console.log("lowercase set.")
   },
 
-  setNumbers: function () {
-    hasNumbers = window.confirm("Should the password contain numbers characters? ")
+  setNumbers: function (isNumber) {
 
-    if(hasNumbers === true){
-      hasNumbers = true;
-      console.log(hasNumbers)
-    } else {
-      hasNumbers = false;
-      console.log(hasNumbers)
-    }
+    isNumber = window.confirm("Should the password contain lowercase characters? ")
+    this.hasNumbers = isNumber;    
     console.log("number set.")
   },
 
-  setSpecialChar: function () {
-    hasSpecialChar = window.confirm("Should the password contain special characters? ")
+  setSpecialChar: function (isSpecialChar) {
 
-    if(hasSpecialChar === true){
-      hasSpecialChar = true;
-      console.log(hasSpecialChar)
-    } else {
-      hasSpecialChar = false;
-      console.log(hasSpecialChar)
-    }
+    isSpecialChar = window.confirm("Should the password contain lowercase characters? ")
+    this.hasSpecialChar = isSpecialChar;    
     console.log("special character set.")
 
   },
-
+  
   displayPassword: function () {
     console.log(this.characters)
-  }
+  } 
 
 }
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword());
 
 // Write password to the #password input
 function writePassword() {
 
-  var password = finalPassWord.generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
+
+  console.log(password);
+  console.log(finalPassWord.passwordLength);
 
   passwordText.value = password;
 }
 
+function generatePassword() {
+
+  finalPassWord.setPasswordLength();
+  console.log(finalPassWord.passwordLength)
+  finalPassWord.setUppercase();
+  console.log(finalPassWord.hasUppercase)
+  finalPassWord.setLowercase();
+  console.log(finalPassWord.hasLowercase)
+  finalPassWord.setNumbers();
+  console.log(finalPassWord.hasNumbers)
+  finalPassWord.setSpecialChar();
+  console.log(finalPassWord.hasSpecialChar)
+
+  console.log("Hey Joel here's the final password ")
+  console.log(finalPassWord)  
+
+  assemblePassword();
+}
+
+function assemblePassword () {
+  console.log("Generating Password...")
+  for(var i= 0; i < finalPassWord.passwordLength; i++){
+
+  }
+}
 
 // function generatePassword() {
 
@@ -126,6 +123,3 @@ function writePassword() {
 //   var awnser = prompt("Do you want to use uppercase characters? ")
 
 // }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
