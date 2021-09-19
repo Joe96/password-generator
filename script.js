@@ -1,8 +1,8 @@
-// Assignment Code
-// var generateBtn = document.querySelector("#generate");
+// Assignment Code.
 
-// length lowercase, uppercase, numeric, and/or special characters
+// finalPassWord object.
 var finalPassWord = {
+  // Length lowercase, uppercase, numeric, and/or special characters variables.
   passwordLength: 0,
   characters: "",
   hasUppercase: false,
@@ -10,6 +10,7 @@ var finalPassWord = {
   hasNumbers: false,
   hasSpecialChar: false,
 
+  // Method used to set password object's password length.
   setPasswordLength: function (number) {
 
     number = parseInt(prompt("How many character should the password have? : "));
@@ -27,6 +28,7 @@ var finalPassWord = {
 
   },
 
+  // Method used to set if password object can use uppercase.
   setUppercase: function (isUppercase) {
 
     isUppercase = window.confirm("Should the password contain lowercase characters? ")
@@ -34,6 +36,7 @@ var finalPassWord = {
     console.log("uppercase set.")
   },
 
+  // Method used to set if password object can use lowercase.
   setLowercase: function (isLowercase) {
 
     isLowercase = window.confirm("Should the password contain lowercase characters? ")
@@ -41,6 +44,7 @@ var finalPassWord = {
     console.log("lowercase set.")
   },
 
+  // Method used to set if password object can use numbers.
   setNumbers: function (isNumber) {
 
     isNumber = window.confirm("Should the password contain lowercase characters? ")
@@ -48,6 +52,7 @@ var finalPassWord = {
     console.log("number set.")
   },
 
+  // Method used to set if password object can use special characters.
   setSpecialChar: function (isSpecialChar) {
 
     isSpecialChar = window.confirm("Should the password contain lowercase characters? ")
@@ -62,10 +67,10 @@ var finalPassWord = {
 
 }
 
-// Add event listener to generate button
+// Event listener for a click from the generate button.
 generateBtn.addEventListener("click", writePassword());
 
-// Write password to the #password input
+// writePassword() to the #password input.
 function writePassword() {
 
   var password = generatePassword();
@@ -102,24 +107,3 @@ function assemblePassword () {
 
   }
 }
-
-// function generatePassword() {
-
-//   var passwordLength = prompt("How much characters do you want you password to have? ")
-
-//   if (passwordLength <= 7) {
-//     console.log("Number to short, try again!")
-//   } 
-//   else if (passwordLength >= 129){
-//     console.log("Number to big, try again!")
-//   }
-//   else {
-//     isUppercase()
-//   }
-// }
-
-// function isUppercase() {
-
-//   var awnser = prompt("Do you want to use uppercase characters? ")
-
-// }
