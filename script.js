@@ -113,6 +113,8 @@ function generatePassword() {
 function assemblePassword () {
   console.log("Generating Password...")
 
+  passwordStrength = [];
+
   upperCaseArray = finalPassWord.upperCase;
   lowerCaseArray = finalPassWord.lowerCase;
   numberArray = finalPassWord.number;
@@ -120,23 +122,27 @@ function assemblePassword () {
 
   if (finalPassWord.hasUpperCase == true) {
     console.log(upperCaseArray)
+    passwordStrength.push(upperCaseArray)
   } else {
     console.log("Do not use uppercase.")
   }
 
   if (finalPassWord.hasLowerCase == true) {
     console.log(lowerCaseArray)
+    passwordStrength.push(lowerCaseArray)
   } else {
     console.log("Do not use lowercase.")
   }
 
   if (finalPassWord.hasNumbers == true) {
     console.log(numberArray)
+    passwordStrength.push(numberArray)
   } else {
     console.log("Do not use numbers.")
   }
 
   if (finalPassWord.hasSpecialChar == true) {
+    passwordStrength.push(specialCharArray)
     console.log(specialCharArray)
   }else {
     console.log("Do not use special characters.")
@@ -145,7 +151,7 @@ function assemblePassword () {
   for(var i= 0; i < finalPassWord.passwordLength; i++) {
     
     console.log("Assembling Password...")
-    passwordStrength = []
+    console.log(passwordStrength)
     //var specialChar = finalPassWord.specialChar[Math.floor(Math.random()*finalPassWord.specialChar.length)];
 
   }
