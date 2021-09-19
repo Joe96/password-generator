@@ -1,14 +1,21 @@
 // Assignment Code.
 
+
+
 // finalPassWord object.
 var finalPassWord = {
   // Length lowercase, uppercase, numeric, and/or special characters variables.
   passwordLength: 0,
   characters: "",
-  hasUppercase: false,
-  hasLowercase: false,
+  hasUpperCase: false,
+  hasLowerCase: false,
   hasNumbers: false,
   hasSpecialChar: false,
+  upperCase: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",],
+  lowerCase: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",],
+  number: ["0","1","2","3","4","5","6","7","8","9"],
+  specialChar: ["!","@","#","$","%","^","&","*","'","(",")","+","=",".","/","?","<",">","-","_","[","]","|"," :",";",],
+
 
   // Method used to set password object's password length.
   setPasswordLength: function (number) {
@@ -16,10 +23,13 @@ var finalPassWord = {
     number = parseInt(prompt("How many character should the password have? : "));
 
     if(number <= 7) {
-      console.log("Number to short, try again!")
+      alert("Number to short, try again!")
+      number = parseInt(prompt("How many character should the password have? : "));
+
     } 
     else if (number >= 129){
-      console.log("Number to big, try again!")
+      alert("Number to big, try again!")
+      number = parseInt(prompt("How many character should the password have? : "));
     }
     else {
       this.passwordLength = number;
@@ -29,25 +39,25 @@ var finalPassWord = {
   },
 
   // Method used to set if password object can use uppercase.
-  setUppercase: function (isUppercase) {
+  setUppercase: function (isUpperCase) {
 
-    isUppercase = window.confirm("Should the password contain lowercase characters? ")
-    this.hasUppercase = isUppercase;    
+    isUpperCase = window.confirm("Should the password contain uppercase characters? ")
+    this.hasUpperCase = isUpperCase;    
     console.log("uppercase set.")
   },
 
   // Method used to set if password object can use lowercase.
-  setLowercase: function (isLowercase) {
+  setLowercase: function (isLowerCase) {
 
-    isLowercase = window.confirm("Should the password contain lowercase characters? ")
-    this.hasLowercase = isLowercase;    
+    isLowerCase = window.confirm("Should the password contain lowercase characters? ")
+    this.hasLowerCase = isLowerCase;    
     console.log("lowercase set.")
   },
 
   // Method used to set if password object can use numbers.
   setNumbers: function (isNumber) {
 
-    isNumber = window.confirm("Should the password contain lowercase characters? ")
+    isNumber = window.confirm("Should the password contain numbers? ")
     this.hasNumbers = isNumber;    
     console.log("number set.")
   },
@@ -55,7 +65,7 @@ var finalPassWord = {
   // Method used to set if password object can use special characters.
   setSpecialChar: function (isSpecialChar) {
 
-    isSpecialChar = window.confirm("Should the password contain lowercase characters? ")
+    isSpecialChar = window.confirm("Should the password contain special characters? ")
     this.hasSpecialChar = isSpecialChar;    
     console.log("special character set.")
 
@@ -67,7 +77,7 @@ var finalPassWord = {
 
 }
 
-// Event listener for a click from the generate button.
+// Event listens for a click from the generate button.
 generateBtn.addEventListener("click", writePassword());
 
 // writePassword() to the #password input.
@@ -77,7 +87,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   console.log(password);
-  console.log(finalPassWord.passwordLength);
 
   passwordText.value = password;
 }
@@ -87,9 +96,9 @@ function generatePassword() {
   finalPassWord.setPasswordLength();
   console.log(finalPassWord.passwordLength)
   finalPassWord.setUppercase();
-  console.log(finalPassWord.hasUppercase)
+  console.log(finalPassWord.hasUpperCase)
   finalPassWord.setLowercase();
-  console.log(finalPassWord.hasLowercase)
+  console.log(finalPassWord.hasLowerCase)
   finalPassWord.setNumbers();
   console.log(finalPassWord.hasNumbers)
   finalPassWord.setSpecialChar();
@@ -103,7 +112,41 @@ function generatePassword() {
 
 function assemblePassword () {
   console.log("Generating Password...")
-  for(var i= 0; i < finalPassWord.passwordLength; i++){
+
+  upperCaseArray = finalPassWord.upperCase;
+  lowerCaseArray = finalPassWord.lowerCase;
+  numberArray = finalPassWord.number;
+  specialCharArray = finalPassWord.specialChar;
+
+  if (finalPassWord.hasUpperCase == true) {
+    console.log(upperCaseArray)
+  } else {
+    console.log("Do not use uppercase.")
+  }
+
+  if (finalPassWord.hasLowerCase == true) {
+    console.log(lowerCaseArray)
+  } else {
+    console.log("Do not use lowercase.")
+  }
+
+  if (finalPassWord.hasNumbers == true) {
+    console.log(numberArray)
+  } else {
+    console.log("Do not use numbers.")
+  }
+
+  if (finalPassWord.hasSpecialChar == true) {
+    console.log(specialCharArray)
+  }else {
+    console.log("Do not use special characters.")
+  }
+
+  for(var i= 0; i < finalPassWord.passwordLength; i++) {
+    
+    console.log("Assembling Password...")
+    passwordStrength = []
+    //var specialChar = finalPassWord.specialChar[Math.floor(Math.random()*finalPassWord.specialChar.length)];
 
   }
 }
