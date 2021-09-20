@@ -1,6 +1,5 @@
 // Assignment Code.
-
-
+var generateBtn = document.querySelector("#generate");
 
 // finalPassWord object.
 var finalPassWord = {
@@ -79,9 +78,6 @@ var finalPassWord = {
   } 
 
 }
-
-// Event listens for a click from the generate button.
-generateBtn.addEventListener("click", writePassword());
 
 // writePassword() to the #password input.
 function writePassword() {
