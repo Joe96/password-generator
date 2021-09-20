@@ -41,3 +41,5 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Link to gitpage
 
+[Gitpage](https://joe96.github.io/password-generator)
+
