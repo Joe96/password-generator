@@ -4,9 +4,9 @@
 
 // finalPassWord object.
 var finalPassWord = {
-  // Length lowercase, uppercase, numeric, and/or special characters variables.
+  // Length lowercase, uppercase, `numeric, and/or special characters variables.
   passwordLength: 0,
-  characters: "",
+  characters: [""],
   hasUpperCase: false,
   hasLowerCase: false,
   hasNumbers: false,
@@ -71,8 +71,11 @@ var finalPassWord = {
 
   },
   
-  displayPassword: function () {
-    console.log(this.characters)
+  setPassword: function (char) {
+    console.log("adding character to password.")  
+    console.log(char)  
+    this.characters.push(char)
+    
   } 
 
 }
@@ -86,9 +89,9 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  console.log(password);
+  console.log(finalPassWord.characters);
 
-  passwordText.value = password;
+  passwordText.value = finalPassWord.characters.join("");
 }
 
 function generatePassword() {
@@ -148,11 +151,15 @@ function assemblePassword () {
     console.log("Do not use special characters.")
   }
 
+  console.log(passwordStrength)
+  console.log("Assembling Password...")
+
   for(var i= 0; i < finalPassWord.passwordLength; i++) {
     
-    console.log("Assembling Password...")
-    console.log(passwordStrength)
-    //var specialChar = finalPassWord.specialChar[Math.floor(Math.random()*finalPassWord.specialChar.length)];
+    var char = passwordStrength[Math.floor(Math.random()*passwordStrength.length)];
+    var item = char[Math.floor(Math.random()*char.length)];
+
+    finalPassWord.setPassword(item);
 
   }
 }
