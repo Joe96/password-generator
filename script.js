@@ -40,25 +40,25 @@ var finalPassWord = {
   // Method used to set if password object can use uppercase.
   setUppercase: function (isUpperCase) {
 
-    isUpperCase = window.confirm("Should the password contain uppercase characters? ")
+    isUpperCase = window.confirm("Should the password contain uppercase characters? ");
     this.hasUpperCase = isUpperCase;    
-    console.log("uppercase set.")
+    console.log("uppercase set.");
   },
 
   // Method used to set if password object can use lowercase.
   setLowercase: function (isLowerCase) {
 
-    isLowerCase = window.confirm("Should the password contain lowercase characters? ")
+    isLowerCase = window.confirm("Should the password contain lowercase characters? ");
     this.hasLowerCase = isLowerCase;    
-    console.log("lowercase set.")
+    console.log("lowercase set.");
   },
 
   // Method used to set if password object can use numbers.
   setNumbers: function (isNumber) {
 
-    isNumber = window.confirm("Should the password contain numbers? ")
+    isNumber = window.confirm("Should the password contain numbers? ");
     this.hasNumbers = isNumber;    
-    console.log("number set.")
+    console.log("number set.");
   },
 
   // Method used to set if password object can use special characters.
